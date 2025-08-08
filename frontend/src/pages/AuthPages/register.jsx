@@ -17,13 +17,13 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/register', form);
+      const res = await axios.post('http://localhost:5000/auth/signup', form);
       alert('Registered successfully!');
       console.log(res.data);
         if (form.role === 'company') {
         navigate('/company/dashboard');
       } else if (form.role === 'student') {
-        navigate('/student/dashboard');
+        navigate('/dashboard/student');
       }
     } catch (err) {
       console.error(err);
